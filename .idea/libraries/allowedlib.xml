@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="allowedlib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/allowedlib/cloudinary-http44-1.39.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/cloudinary-http44-1.29.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/httpmime-4.5.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/cloudinary-taglib-1.36.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/httpcore-4.4.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/cloudinary-http44-1.36.0 (1).jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/httpclient-4.5.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/commons-io-2.11.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/cloudinary-core-1.32.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/jakarta.servlet.jsp.jstl-api-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/sqljdbc42.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/jaxb-api-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/jakarta.servlet.jsp.jstl-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/allowedlib/cloudinary-http44-1.36.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
