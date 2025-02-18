@@ -11,10 +11,26 @@
         <error-code>403</error-code>
         <location>/403.html</location>
     </error-page>
-     <error-page>
+    <error-page>
         <error-code>405</error-code>
         <location>/405.html</location>
     </error-page>
+    <servlet>
+        <servlet-name>EmptyRoom</servlet-name>
+        <servlet-class>controller.EmptyRoom</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmptyRooms</servlet-name>
+        <servlet-class>controller.EmptyRooms</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmptyRoom</servlet-name>
+        <url-pattern>/emptyRoom</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmptyRooms</servlet-name>
+        <url-pattern>/emptyRooms</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
