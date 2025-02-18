@@ -102,7 +102,7 @@ public class UserDAO extends DBContext {
 
     public static void main(String[] args) {
         UserDAO dao = new UserDAO();
-        dao.addUser(new User(4, "ducanh", "123", "phan@gmail.com", "Phan Duc Anh", "Manager", LocalDateTime.now()));
+        dao.addUser(new User(1, "ducanh", "123", "phan@gmail.com", "Phan Duc Anh", "Manager", LocalDateTime.now()));
     }
 
     public User getUserByID(int userID) {

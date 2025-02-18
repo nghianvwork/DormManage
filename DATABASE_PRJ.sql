@@ -1,5 +1,6 @@
-﻿CREATE TABLE Users (
-    UserID INT PRIMARY KEY ,
+﻿
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY IDENTITY(1,1) ,
     Username VARCHAR(50) NOT NULL,
     PasswordHash VARCHAR(255) NOT NULL,
     Email VARCHAR(100),
@@ -87,13 +88,13 @@ CREATE TABLE DormService (
 	DepartmentID INT,
 	FOREIGN KEY ( DepartmentID) REFERENCES Departments(DepartmentID)
 );
-INSERT INTO Users (UserID, Username, PasswordHash, Email, FullName, Role, RegistrationDate)
+INSERT INTO Users ( Username, PasswordHash, Email, FullName, Role, RegistrationDate)
 VALUES 
-(1, 'user1', '1', 'user1@example.com', N'Nguyễn Văn A', 'User', GETDATE()),
-(2, 'user2', '2', 'user2@example.com', N'Trần Thị B', 'Manager', GETDATE()),
-(3, 'user3', '3', 'user3@example.com', N'Lê Văn C', 'User', GETDATE()),
-(4, 'user4', '4', 'user4@example.com', N'Phạm Thị D', 'User', GETDATE()),
-(5, 'user5', '5', 'user5@example.com', N'Hoàng Văn E', 'Manager', GETDATE());
+('user1', '1', 'user1@example.com', N'Nguyễn Văn A', 'User', GETDATE()),
+( 'user2', '2', 'user2@example.com', N'Trần Thị B', 'Manager', GETDATE()),
+( 'user3', '3', 'user3@example.com', N'Lê Văn C', 'User', GETDATE()),
+( 'user4', '4', 'user4@example.com', N'Phạm Thị D', 'User', GETDATE()),
+( 'user5', '5', 'user5@example.com', N'Hoàng Văn E', 'Manager', GETDATE());
 
 -- Thêm dữ liệu vào bảng Services
 INSERT INTO Services (ServiceID, ServiceName, ServiceDescription, Price)

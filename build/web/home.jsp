@@ -3,7 +3,7 @@
 <html>
     <head>
         <link rel="icon" href="img/DỊCH VỤ TRÔNG GIỮ THÚ CƯNG (3).png"/>
-        <title>VAN NGHIA BUILDING</title>
+        <title>HOANG GIA BUILDING</title>
         <!-- Include Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -70,7 +70,7 @@
         <!-- Banner Section -->
         <section class="banner">
             <div class="container" style="color: white; background-color: rgba(0, 0, 0, .5); padding: 80px 0">
-                <h1>Welcome to VAN NGHIA BUILDING</h1>
+                <h1>Welcome to HOANG GIA BUILDING</h1>
                 <p class="lead">Find and rent house.</p>
             </div>
         </section>

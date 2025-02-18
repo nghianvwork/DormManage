@@ -7,7 +7,7 @@
         <link rel="icon" href="img/D?CH V? TRÔNG GI? THÚ C?NG (3).png"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>VAN NGHIA BUILDING</title>
+        <title>HOANG GIA BUILDING</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="styles.css">

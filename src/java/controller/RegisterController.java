@@ -63,7 +63,7 @@ public class RegisterController extends HttpServlet {
 
         // Save user to database
         userDAO.addUser(newUser);
-
+        
         // Redirect to login page after successful registration
         response.sendRedirect("login.jsp");
     }

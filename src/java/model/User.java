@@ -33,7 +33,14 @@ public class User {
         this.role = role;
         this.registrationDate = registrationDate;
     }
-
+     public User( String username, String passwordHash, String email, String fullName, String role, LocalDateTime registrationDate) {
+        this.username = username;
+        this.passwordHash = passwordHash;
+        this.email = email;
+        this.fullName = fullName;
+        this.role = role;
+        this.registrationDate = registrationDate;
+    }
     public int getUserID() {
         return userID;
     }
