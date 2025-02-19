@@ -198,7 +198,7 @@ public class RoomDAO extends DBContext {
         return room;
     }
 
-    private static final String INSERT_BOOKING_SQL = "INSERT INTO UserRooms (UserID, RoomID, StartDate,Enddate, Status) VALUES (?,?, ?, ?, ?)";
+    private static final String INSERT_BOOKING_SQL = "INSERT INTO UserRooms (UserID, RoomID, StartDate,EndDate, Status) VALUES (?,?, ?, ?, ?)";
 
     public void bookRoom(UserRoom userRoom) {
         try (
@@ -283,11 +283,11 @@ public class RoomDAO extends DBContext {
 
             while (rs.next()) {
                 UserRoom userRoom = new UserRoom();
-                userRoom.setUserRoomID(rs.getInt("UserRoomID"));
-                userRoom.setRoomID(rs.getInt("RoomID"));
-                userRoom.setStartDate(rs.getDate("StartDate").toLocalDate());
-                userRoom.setEndDate(rs.getDate("EndDate") != null ? rs.getDate("EndDate").toLocalDate() : null);
-                userRoom.setStatus(rs.getString("Status"));
+                userRoom.setUserRoomID(rs.getInt("userRoomID"));
+                userRoom.setRoomID(rs.getInt("roomID"));
+                userRoom.setStartDate(rs.getDate("startDate").toLocalDate());
+                userRoom.setEndDate(rs.getDate("endDate") != null ? rs.getDate("endDate").toLocalDate() : null);
+                userRoom.setStatus(rs.getString("status"));
                 activeBookings.add(userRoom);
             }
         } catch (SQLException e) {
@@ -382,5 +382,28 @@ public class RoomDAO extends DBContext {
             System.out.println(e.getMessage());
         }
     }
- 
+
+    public List<Room> getEmptyRooms(int departmentID) {
+        List<Room> emptyRooms = new ArrayList<>();
+        String sql = "SELECT RoomID, DepartmentID, RoomNumber, Status FROM Rooms WHERE Status = 'Available' and DepartmentID = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, departmentID);
+            ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+                Room room = new Room();
+                room.setRoomID(rs.getInt("roomID"));
+                room.setDepartmentID(rs.getInt("departmentID"));
+                room.setRoomNumber(rs.getString("roomNumber"));
+                room.setStatus(rs.getString("status"));
+
+                emptyRooms.add(room);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("getEmptyRooms: " + e.getMessage());
+        }
+        return emptyRooms;
+    }
+
 }

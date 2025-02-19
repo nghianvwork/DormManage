@@ -47,7 +47,7 @@
                                     <td>${dorm.departmentID}</td>
                                     <td>${dorm.departmentName}</td>
                                     <td>${dorm.address}</td>
-                                    <td><a href="empty-room?dormid=${dorm.departmentID}">${dorm.emptyRoom}</a></td>
+                                    <td><a href="empty-room?dormid=${dorm.departmentID}">View</a></td>
                                     <td>
                                         <!-- Update Button with Modal -->
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal${dorm.departmentID}">

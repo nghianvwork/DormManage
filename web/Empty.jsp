@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +16,9 @@
             <thead>
                 <tr>
                     <th>Room ID</th>
-                    <th>Dorm Name</th>
-                    <th>Address</th>
-                    <th>Capacity</th>
+                    <th>Room Number</th>
+                    <th>Department</th>
+                    <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -25,9 +26,9 @@
                 <c:forEach var="room" items="${emptyRooms}">
                     <tr>
                         <td>${room.roomID}</td>
-                        <td>${room.dormName}</td>
-                        <td>${room.address}</td>
-                        <td>${room.capacity}</td>
+                        <td>${room.roomNumber}</td>
+                        <td>${room.department.departmentName}</td> 
+                        <td>${room.status}</td>
                         <td>
                             <a href="book-room?roomID=${room.roomID}" class="btn btn-success">Book</a>
                         </td>

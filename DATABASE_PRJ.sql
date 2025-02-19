@@ -10,7 +10,7 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Services (
-    ServiceID INT PRIMARY KEY ,
+    ServiceID INT PRIMARY KEY IDENTITY(1,1),
     ServiceName VARCHAR(100) NOT NULL,
     ServiceDescription TEXT,
     Price DECIMAL(10,2) NOT NULL
@@ -27,7 +27,7 @@ CREATE TABLE UserServices (
 );
 
 CREATE TABLE Departments (
-    DepartmentID INT PRIMARY KEY ,
+    DepartmentID INT PRIMARY KEY IDENTITY(1,1),
     DepartmentName VARCHAR(100) NOT NULL,
     ManagerID INT,
     Address TEXT,
@@ -36,7 +36,7 @@ CREATE TABLE Departments (
 );
 
 CREATE TABLE Rooms (
-    RoomID INT PRIMARY KEY ,
+    RoomID INT PRIMARY KEY IDENTITY(1,1) ,
     DepartmentID INT,
     RoomNumber VARCHAR(50) NOT NULL,
 	[Status] [nvarchar](50),
@@ -44,7 +44,7 @@ CREATE TABLE Rooms (
 );
 
 CREATE TABLE UserRooms (
-    UserRoomID INT PRIMARY KEY,
+    UserRoomID INT PRIMARY KEY IDENTITY(1,1),
     UserID INT,
     RoomID INT,
     StartDate DATE,
@@ -81,7 +81,7 @@ CREATE TABLE DormImage (
 );
 
 CREATE TABLE DormService (
-    DormServiceID INT PRIMARY KEY,
+    DormServiceID INT PRIMARY KEY ,
     DormID INT,
     ServiceID INT,
     FOREIGN KEY (ServiceID) REFERENCES Services(ServiceID),
@@ -94,16 +94,19 @@ VALUES
 ( 'user2', '2', 'user2@example.com', N'Tran Thi B', 'Manager', GETDATE()),
 ( 'user3', '3', 'user3@example.com', N'Le Van C', 'User', GETDATE()),
 ( 'user4', '4', 'user4@example.com', N'Pham Thi D', 'User', GETDATE()),
-( 'user5', '5', 'user5@example.com', N'Hoang Van E', 'Manager', GETDATE());
+( 'user5', '5', 'user5@example.com', N'Hoang Van E', 'Manager', GETDATE()),
+( 'user6', '6', 'user6@example.com', N'Phan Van G', 'Manager', GETDATE()),
+( 'user7', '7', 'user7@example.com', N'Ly Thi H', 'Manager', GETDATE()),
+( 'user8', '8', 'user8@example.com', N'Pham Thi K', 'Manager', GETDATE());
 
 -- Thêm dữ liệu vào bảng Services
-INSERT INTO Services (ServiceID, ServiceName, ServiceDescription, Price)
+INSERT INTO Services (ServiceName, ServiceDescription, Price)
 VALUES 
-(1, N'Internet', N'Cung cấp ket noi Internet toc do cao', 100.00),
-(2, N'Don phong', N'Dich vu don phong', 50.00),
-(3, N'Giat ui', N'Dich vu giat quan ao', 30.00),
-(4, N'Gui xe', N'Dich vu giu xe', 20.00),
-(5, N'Dien', N'Chi phi su dung dien hang thang', 200.00);
+(N'Internet', N'Cung cấp kết nối Internet tốc độ cao', 100.00),
+(N'Dọn phòng', N'Dịch vụ dọn phòng hàng ngày', 50.00),
+(N'Giặt ủi', N'Dịch vụ giặt ủi quần áo', 30.00),
+(N'Gửi xe', N'Dịch vụ giữ xe', 20.00),
+(N'Điện', N'Chi phí sử dụng điện hàng tháng', 200.00);
 
 -- Thêm dữ liệu vào bảng UserServices
 INSERT INTO UserServices (UserServiceID, UserID, ServiceID, CreatedDate, Status)
@@ -115,35 +118,40 @@ VALUES
 (5, 5, 5, GETDATE(), 'Active');
 
 -- Thêm dữ liệu vào bảng Departments
-INSERT INTO Departments (DepartmentID, DepartmentName, ManagerID, Address, EmptyRoom, Price)
+INSERT INTO Departments (DepartmentName, ManagerID, Address, EmptyRoom, Price)
 VALUES 
-(1, 'KTX A', 1, N'123 Duong A, Ha Noi', 10, 500.00),
-(2, 'KTX B', 2, N'456 Đuong B, Ha Noi', 8, 600.00),
-(3, 'KTX C', 3, N'789 Đuong C, Ha Noi', 5, 700.00),
-(4, 'KTX D', 4, N'101 Đuong D, Ha Noi', 3, 800.00),
-(5, 'KTX E', 5, N'202 Đuong E, Ha Noi', 2, 900.00);
+(N'KTX A', 2, N'123 Đường A, Hà Nội', 5, 500.00),
+(N'KTX B', 5, N'456 Đường B, Hà Nội', 3, 600.00),
+(N'KTX C', 6, N'789 Đường C, Hà Nội', 1, 700.00),
+(N'KTX D', 7, N'101 Đường D, Hà Nội', 3, 800.00),
+(N'KTX E', 8, N'202 Đường E, Hà Nội', 2, 900.00);
 
 -- Thêm dữ liệu vào bảng Rooms
-INSERT INTO Rooms (RoomID, DepartmentID, RoomNumber,Status)
+INSERT INTO Rooms (DepartmentID, RoomNumber, Status)
 VALUES 
-(1, 1, '101A', N'Available'),
-(2, 1, '102A', N'Occupied'),
-(6, 1, '103A', N'Available'),
-(3, 2, '201B', N'Occupied'),
-(7, 2, '205B', N'Available'),
-(4, 3, '301C',N'Available'),
-(5, 4, '401D',N'Available'),
-(8, 4, '402D',N'Available'),
-(9, 4, '404D',N'Available');
+(1, '101A', N'Occupied'),
+(1, '102A', N'Available'),
+(1, '103A', N'Available'),
+(1, '104A', N'Available'),
+(1, '105A', N'Available'),
+(2, '201B', N'Occupied'),
+(2, '205B', N'Available'),
+(2, '207B', N'Available'),
+(3, '301C', N'Available'),
+(4, '401D', N'Available'),
+(4, '402D', N'Available'),
+(4, '404D', N'Available'),
+(5, '506D', N'Available'),
+(5, '501D', N'Available');
 
 -- Thêm dữ liệu vào bảng UserRooms
-INSERT INTO UserRooms (UserRoomID, UserID, RoomID, StartDate, EndDate, Status)
+INSERT INTO UserRooms (UserID, RoomID, StartDate, EndDate, Status)
 VALUES 
-(1, 1, 1, '2024-01-01', '2024-06-30', 'Occupied'),
-(2, 2, 2, '2024-02-01', '2024-07-31', 'Occupied'),
-(3, 3, 3, '2024-03-01', '2024-08-31', 'Reserved'),
-(4, 4, 4, '2024-04-01', '2024-09-30', 'Occupied'),
-(5, 5, 5, '2024-05-01', '2024-10-31', 'Pending');
+(1, 1, '2024-01-01', '2024-06-30', 'Occupied'),
+(2, 4, '2024-02-01', '2024-07-31', 'Occupied'),
+(3, 3, '2024-03-01', '2024-08-31', 'Reserved'),
+(4, 5, '2024-04-01', '2024-09-30', 'Occupied'),
+(5, 2, '2024-05-01', '2024-10-31', 'Pending');
 
 -- Thêm dữ liệu vào bảng Bill
 INSERT INTO Bill (BillID, RoomID, GuestID, TotalCost, CreateDate, PaymentStatus)
