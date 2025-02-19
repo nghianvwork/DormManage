@@ -51,7 +51,7 @@
                             <a class="nav-link" href="booked-room">RENTED ROOM</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="get-bill">BILL</a>
+                            <a class="nav-link" href="getBillUser">BILL</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="payment-history">PAYMENT-HISTORY</a>

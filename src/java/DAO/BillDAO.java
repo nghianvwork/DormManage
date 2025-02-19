@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import model.Bill;
 import model.BillService;
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -73,4 +74,29 @@ public class BillDAO extends DBContext {
             System.out.println(e.getMessage());
         }
     }
+   
+   public double getRoomPrice(int roomID) throws SQLException {
+    String sql = "SELECT d.Price FROM Rooms r JOIN Departments d ON r.DepartmentID = d.DepartmentID WHERE r.RoomID = ?";
+    try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setInt(1, roomID);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            return rs.getDouble("Price");
+        }
+    }
+    return 0; 
+}
+
+
+public void createBill( int roomID, int userID, double price) throws SQLException {
+    String sql = "INSERT INTO Bill (RoomID, GuestID, TotalCost, CreateDate, PaymentStatus) VALUES (?, ?, ?, ?, ?)";
+    try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setInt(1, roomID);
+        stmt.setInt(2, userID);
+        stmt.setDouble(3, price);
+        stmt.setObject(4, LocalDateTime.now());
+        stmt.setString(5, "Unpaid");
+        stmt.executeUpdate();
+    }
+}
 }
