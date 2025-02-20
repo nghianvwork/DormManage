@@ -147,7 +147,7 @@
     <a href="https://www.facebook.com/profile.php?id=100034092225472" class="facebook" target="_blank">
         <i class="fab fa-facebook-f"></i>
     </a>
-    <a href="tel:+0867806182" class="hotline">
+    <a href="tel:+0375847762" class="hotline">
         <i class="fas fa-phone-alt"></i> 
     </a>
 </div>

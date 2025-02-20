@@ -23,6 +23,26 @@
         <servlet-name>EmptyRooms</servlet-name>
         <servlet-class>controller.EmptyRooms</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserBillServlet</servlet-name>
+        <servlet-class>controller.UserBillServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserBill</servlet-name>
+        <servlet-class>controller.UserBill</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentHistory</servlet-name>
+        <servlet-class>controller.PaymentHistory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatePayment</servlet-name>
+        <servlet-class>controller.UpdatePayment</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentUser</servlet-name>
+        <servlet-class>controller.PaymentUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmptyRoom</servlet-name>
         <url-pattern>/emptyRoom</url-pattern>
@@ -30,6 +50,22 @@
     <servlet-mapping>
         <servlet-name>EmptyRooms</servlet-name>
         <url-pattern>/emptyRooms</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserBill</servlet-name>
+        <url-pattern>/userBill</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentHistory</servlet-name>
+        <url-pattern>/paymentHistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePayment</servlet-name>
+        <url-pattern>/updatePayment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentUser</servlet-name>
+        <url-pattern>/paymentUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

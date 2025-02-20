@@ -44,7 +44,7 @@
                                     <form action="payment-user" method="post">
                                         <input type="hidden" name="billID" value="${bill.billID}">
                                         <input type="hidden" name="amount" value="${bill.totalCost}">
-                                        <button type="submit" class="btn btn-primary">Pay Now</button>
+                                        
                                     </form>
                                 </c:if>
                             </td>

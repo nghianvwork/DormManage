@@ -12,6 +12,8 @@ import model.Bill;
 import model.BillService;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -64,39 +66,94 @@ public class BillDAO extends DBContext {
             pre.setDouble(7, billService.getTotal());
 
             int add = pre.executeUpdate();
-            if(add > 0){
+            if (add > 0) {
                 System.out.println("Add successfully");
-            }
-            else{
+            } else {
                 System.out.println("no");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
-   
-   public double getRoomPrice(int roomID) throws SQLException {
-    String sql = "SELECT d.Price FROM Rooms r JOIN Departments d ON r.DepartmentID = d.DepartmentID WHERE r.RoomID = ?";
-    try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-        stmt.setInt(1, roomID);
-        ResultSet rs = stmt.executeQuery();
-        if (rs.next()) {
-            return rs.getDouble("Price");
+
+    public double getRoomPrice(int roomID) throws SQLException {
+        String sql = "SELECT d.Price FROM Rooms r JOIN Departments d ON r.DepartmentID = d.DepartmentID WHERE r.RoomID = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, roomID);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getDouble("Price");
+            }
         }
+        return 0;
     }
-    return 0; 
-}
 
-
-public void createBill( int roomID, int userID, double price) throws SQLException {
-    String sql = "INSERT INTO Bill (RoomID, GuestID, TotalCost, CreateDate, PaymentStatus) VALUES (?, ?, ?, ?, ?)";
-    try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-        stmt.setInt(1, roomID);
-        stmt.setInt(2, userID);
-        stmt.setDouble(3, price);
-        stmt.setObject(4, LocalDateTime.now());
-        stmt.setString(5, "Unpaid");
-        stmt.executeUpdate();
+    public boolean updatePaymentStatus(int billID, boolean status) {
+        String sql = "UPDATE Bill SET PaymentStatus = ? WHERE BillID = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setBoolean(1, status);
+            stmt.setInt(2, billID);
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
-}
+
+    public List<Bill> getBillsByUserId(int userId) {
+        List<Bill> bills = new ArrayList<>();
+        String sql = "SELECT * FROM Bill WHERE GuestID = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Bill bill = new Bill(
+                        rs.getInt("BillID"),
+                        rs.getInt("RoomID"),
+                        rs.getInt("GuestID"),
+                        rs.getDouble("TotalCost"),
+                        rs.getDate("CreateDate").toLocalDate(),
+                        rs.getBoolean("PaymentStatus")
+                );
+                bills.add(bill);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return bills;
+    }
+public List<Bill> getAllBills() {
+        List<Bill> bills = new ArrayList<>();
+        String sql = "SELECT * FROM Bill";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Bill bill = new Bill(
+                    rs.getInt("BillID"),
+                    rs.getInt("RoomID"),
+                    rs.getInt("GuestID"),
+                    rs.getDouble("TotalCost"),
+                    rs.getDate("CreateDate").toLocalDate(),
+                    rs.getBoolean("PaymentStatus")
+                );
+                bills.add(bill);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return bills;
+    }
+
+//public void createBill( int roomID, int userID, double price) throws SQLException {
+//    String sql = "INSERT INTO Bill (RoomID, GuestID, TotalCost, CreateDate, PaymentStatus) VALUES (?, ?, ?, ?, ?)";
+//    try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+//        stmt.setInt(1, roomID);
+//        stmt.setInt(2, userID);
+//        stmt.setDouble(3, price);
+//        stmt.setObject(4, LocalDateTime.now());
+//        stmt.setString(5, "Unpaid");
+//        stmt.executeUpdate();
+//    }
+//}
 }

@@ -102,11 +102,11 @@ VALUES
 -- Thêm dữ liệu vào bảng Services
 INSERT INTO Services (ServiceName, ServiceDescription, Price)
 VALUES 
-(N'Internet', N'Cung cấp kết nối Internet tốc độ cao', 100.00),
-(N'Dọn phòng', N'Dịch vụ dọn phòng hàng ngày', 50.00),
-(N'Giặt ủi', N'Dịch vụ giặt ủi quần áo', 30.00),
-(N'Gửi xe', N'Dịch vụ giữ xe', 20.00),
-(N'Điện', N'Chi phí sử dụng điện hàng tháng', 200.00);
+(N'Internet', N'Cung cap ket noi Internet', 100.00),
+(N'Don phong', N'Dich vu don phong', 50.00),
+(N'Giat ui', N'Dich vu gia quan ao', 30.00),
+(N'Gui xe', N'Dich vu gui xe', 20.00),
+(N'Dien', N'Chi phi su dung dien', 200.00);
 
 -- Thêm dữ liệu vào bảng UserServices
 INSERT INTO UserServices (UserServiceID, UserID, ServiceID, CreatedDate, Status)
@@ -120,11 +120,11 @@ VALUES
 -- Thêm dữ liệu vào bảng Departments
 INSERT INTO Departments (DepartmentName, ManagerID, Address, EmptyRoom, Price)
 VALUES 
-(N'KTX A', 2, N'123 Đường A, Hà Nội', 5, 500.00),
-(N'KTX B', 5, N'456 Đường B, Hà Nội', 3, 600.00),
-(N'KTX C', 6, N'789 Đường C, Hà Nội', 1, 700.00),
-(N'KTX D', 7, N'101 Đường D, Hà Nội', 3, 800.00),
-(N'KTX E', 8, N'202 Đường E, Hà Nội', 2, 900.00);
+(N'KTX A', 2, N'123 Duong A, Ha Noi', 5, 500.00),
+(N'KTX B', 5, N'456 Duong B, Ha Noi', 3, 600.00),
+(N'KTX C', 6, N'789 Duong C, Ha Noi', 1, 700.00),
+(N'KTX D', 7, N'101 Duong D, Ha Noi', 3, 800.00),
+(N'KTX E', 8, N'202 Duong E, Ha Noi', 2, 900.00);
 
 -- Thêm dữ liệu vào bảng Rooms
 INSERT INTO Rooms (DepartmentID, RoomNumber, Status)
