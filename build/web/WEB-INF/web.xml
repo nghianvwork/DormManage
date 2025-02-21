@@ -43,6 +43,14 @@
         <servlet-name>PaymentUser</servlet-name>
         <servlet-class>controller.PaymentUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminPaymentHistory</servlet-name>
+        <servlet-class>controller.AdminPaymentHistory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentHistoryAdmin</servlet-name>
+        <servlet-class>controller.PaymentHistoryAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmptyRoom</servlet-name>
         <url-pattern>/emptyRoom</url-pattern>
@@ -66,6 +74,14 @@
     <servlet-mapping>
         <servlet-name>PaymentUser</servlet-name>
         <url-pattern>/paymentUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminPaymentHistory</servlet-name>
+        <url-pattern>/admin/payment-history</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentHistoryAdmin</servlet-name>
+        <url-pattern>/paymentHistoryAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

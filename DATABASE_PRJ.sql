@@ -55,7 +55,7 @@ CREATE TABLE UserRooms (
 );
 
 CREATE TABLE Bill (
-    BillID INT PRIMARY KEY,
+    BillID INT PRIMARY KEY IDENTITY(1,1),
     RoomID INT,
     GuestID INT,
     TotalCost DECIMAL(10,2),
@@ -66,7 +66,7 @@ CREATE TABLE Bill (
 );
 
 CREATE TABLE Payment (
-    PaymentID INT PRIMARY KEY,
+    PaymentID INT PRIMARY KEY IDENTITY(1,1),
     BillID INT,
     PaymentDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (BillID) REFERENCES Bill(BillID)
@@ -81,7 +81,7 @@ CREATE TABLE DormImage (
 );
 
 CREATE TABLE DormService (
-    DormServiceID INT PRIMARY KEY ,
+    DormServiceID INT PRIMARY KEY IDENTITY(1,1) ,
     DormID INT,
     ServiceID INT,
     FOREIGN KEY (ServiceID) REFERENCES Services(ServiceID),
@@ -154,30 +154,30 @@ VALUES
 (5, 2, '2024-05-01', '2024-10-31', 'Pending');
 
 -- Thêm dữ liệu vào bảng Bill
-INSERT INTO Bill (BillID, RoomID, GuestID, TotalCost, CreateDate, PaymentStatus)
+INSERT INTO Bill ( RoomID, GuestID, TotalCost, CreateDate, PaymentStatus)
 VALUES 
-(1, 1, 1, 500.00, GETDATE(), 'Paid'),
-(2, 2, 2, 600.00, GETDATE(), 'Unpaid'),
-(3, 3, 3, 700.00, GETDATE(), 'Paid'),
-(4, 4, 4, 800.00, GETDATE(), 'Pending'),
-(5, 5, 5, 900.00, GETDATE(), 'Paid');
+( 1, 1, 500.00, GETDATE(), 'Paid'),
+( 2, 2, 600.00, GETDATE(), 'Unpaid'),
+( 3, 3, 700.00, GETDATE(), 'Paid'),
+( 4, 4, 800.00, GETDATE(), 'Pending'),
+( 5, 5, 900.00, GETDATE(), 'Paid');
 
 -- Thêm dữ liệu vào bảng Payment
-INSERT INTO Payment (PaymentID, BillID, PaymentDate)
+INSERT INTO Payment (BillID, PaymentDate)
 VALUES 
-(1, 1, GETDATE()),
-(2, 3, GETDATE()),
-(3, 5, GETDATE()),
-(4, 4, GETDATE()),
-(5, 2, GETDATE());
+( 1, GETDATE()),
+( 3, GETDATE()),
+( 5, GETDATE()),
+( 4, GETDATE()),
+( 2, GETDATE());
 
 
 
 -- Thêm dữ liệu vào bảng DormService
-INSERT INTO DormService (DormServiceID, DormID, ServiceID, DepartmentID)
+INSERT INTO DormService ( DormID, ServiceID, DepartmentID)
 VALUES 
-(1, 1, 1, 1),
-(2, 2, 2, 2),
-(3, 3, 3, 3),
-(4, 4, 4, 4),
-(5, 5, 5, 5);
+( 1, 1, 1),
+( 2, 2, 2),
+( 3, 3, 3),
+( 4, 4, 4),
+( 5, 5, 5);

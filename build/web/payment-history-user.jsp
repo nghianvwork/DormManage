@@ -20,7 +20,7 @@
                         <th>Total Cost</th>
                         <th>Create Date</th>
                         <th>Payment Status</th>
-                            <c:if test="${sessionScope.user.role == 'Admin'}">
+                            <c:if test="${sessionScope.user.role == 'Manager'}">
                             <th>Action</th>
                             </c:if>
                     </tr>
@@ -44,7 +44,7 @@
                                     <form action="payment-user" method="post">
                                         <input type="hidden" name="billID" value="${bill.billID}">
                                         <input type="hidden" name="amount" value="${bill.totalCost}">
-                                        
+                                        <button type="submit" class="btn btn-primary">Pay Now</button>
                                     </form>
                                 </c:if>
                             </td>

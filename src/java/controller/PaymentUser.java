@@ -31,9 +31,9 @@ public class PaymentUser extends HttpServlet {
                 if (paymentSuccess) {
                     BillDAO billDAO = new BillDAO();
                     billDAO.updatePaymentStatus(billID, true);
-                    response.sendRedirect("payment-history?success=true");
+                    response.sendRedirect("payment-history-user?success=true");
                 } else {
-                    response.sendRedirect("payment-history?error=failed");
+                    response.sendRedirect("payment-history-user?error=failed");
                 }
             } else {
                 response.sendRedirect("login");
@@ -44,7 +44,7 @@ public class PaymentUser extends HttpServlet {
     }
 
     private boolean processPayment(double amount) {
-        // Giả lập thanh toán thành công nếu số tiền > 0
+       
         return amount > 0;
     }
 }

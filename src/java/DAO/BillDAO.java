@@ -145,15 +145,5 @@ public List<Bill> getAllBills() {
         return bills;
     }
 
-//public void createBill( int roomID, int userID, double price) throws SQLException {
-//    String sql = "INSERT INTO Bill (RoomID, GuestID, TotalCost, CreateDate, PaymentStatus) VALUES (?, ?, ?, ?, ?)";
-//    try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-//        stmt.setInt(1, roomID);
-//        stmt.setInt(2, userID);
-//        stmt.setDouble(3, price);
-//        stmt.setObject(4, LocalDateTime.now());
-//        stmt.setString(5, "Unpaid");
-//        stmt.executeUpdate();
-//    }
-//}
+
 }

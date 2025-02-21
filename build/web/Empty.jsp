@@ -29,9 +29,9 @@
                         <td>${room.roomNumber}</td>
                         <td>${room.department.departmentName}</td> 
                         <td>${room.status}</td>
-                        <td>
+<!--                        <td>
                             <a href="book-room?roomID=${room.roomID}" class="btn btn-success">Book</a>
-                        </td>
+                        </td>-->
                     </tr>
                 </c:forEach>
             </tbody>

@@ -29,14 +29,19 @@ public class PaymentHistory extends HttpServlet {
                 List<Bill> bills;
 
                 
-                if ("Admin".equals(user.getRole())) {
+                if ("Manager".equals(user.getRole())) {
                     bills = billDAO.getAllBills();
+                     request.setAttribute("bills", bills);
+                request.getRequestDispatcher("payment-history-admin.jsp").forward(request, response);
+                    
                 } else {
                     bills = billDAO.getBillsByUserId(user.getUserID());
+                     request.setAttribute("bills", bills);
+                request.getRequestDispatcher("payment-history-user.jsp").forward(request, response);
                 }
 
-                request.setAttribute("bills", bills);
-                request.getRequestDispatcher("pay-history.jsp").forward(request, response);
+//                request.setAttribute("bills", bills);
+//                request.getRequestDispatcher("payment-history.jsp").forward(request, response);
             } else {
                 response.sendRedirect("login");
             }
