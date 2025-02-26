@@ -1,5 +1,4 @@
-﻿
-CREATE TABLE Users (
+﻿CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1) ,
     Username VARCHAR(50) NOT NULL,
     PasswordHash VARCHAR(255) NOT NULL,
@@ -61,23 +60,19 @@ CREATE TABLE Bill (
     TotalCost DECIMAL(10,2),
     CreateDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     PaymentStatus VARCHAR(50),
+	AdminConfirmed BIT DEFAULT 0,
     FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID),
     FOREIGN KEY (GuestID) REFERENCES Users(UserID)
 );
 
-CREATE TABLE Payment (
-    PaymentID INT PRIMARY KEY IDENTITY(1,1),
-    BillID INT,
-    PaymentDate DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (BillID) REFERENCES Bill(BillID)
-);
+
 
 CREATE TABLE DormImage (
     ImageID INT PRIMARY KEY,
     DormID INT,
     ImageURL TEXT,
-	DepartmentID INT,
-	FOREIGN KEY ( DepartmentID) REFERENCES Departments(DepartmentID)
+	
+	FOREIGN KEY ( DormID) REFERENCES Departments(DepartmentID)
 );
 
 CREATE TABLE DormService (
@@ -85,8 +80,8 @@ CREATE TABLE DormService (
     DormID INT,
     ServiceID INT,
     FOREIGN KEY (ServiceID) REFERENCES Services(ServiceID),
-	DepartmentID INT,
-	FOREIGN KEY ( DepartmentID) REFERENCES Departments(DepartmentID)
+	
+	FOREIGN KEY ( DormID) REFERENCES Departments(DepartmentID)
 );
 INSERT INTO Users ( Username, PasswordHash, Email, FullName, Role, RegistrationDate)
 VALUES 
@@ -129,12 +124,12 @@ VALUES
 -- Thêm dữ liệu vào bảng Rooms
 INSERT INTO Rooms (DepartmentID, RoomNumber, Status)
 VALUES 
-(1, '101A', N'Occupied'),
+(1, '101A', N'Available'),
 (1, '102A', N'Available'),
 (1, '103A', N'Available'),
 (1, '104A', N'Available'),
 (1, '105A', N'Available'),
-(2, '201B', N'Occupied'),
+(2, '201B', N'Available'),
 (2, '205B', N'Available'),
 (2, '207B', N'Available'),
 (3, '301C', N'Available'),
@@ -144,40 +139,17 @@ VALUES
 (5, '506D', N'Available'),
 (5, '501D', N'Available');
 
--- Thêm dữ liệu vào bảng UserRooms
-INSERT INTO UserRooms (UserID, RoomID, StartDate, EndDate, Status)
-VALUES 
-(1, 1, '2024-01-01', '2024-06-30', 'Occupied'),
-(2, 4, '2024-02-01', '2024-07-31', 'Occupied'),
-(3, 3, '2024-03-01', '2024-08-31', 'Reserved'),
-(4, 5, '2024-04-01', '2024-09-30', 'Occupied'),
-(5, 2, '2024-05-01', '2024-10-31', 'Pending');
 
--- Thêm dữ liệu vào bảng Bill
-INSERT INTO Bill ( RoomID, GuestID, TotalCost, CreateDate, PaymentStatus)
-VALUES 
-( 1, 1, 500.00, GETDATE(), 'Paid'),
-( 2, 2, 600.00, GETDATE(), 'Unpaid'),
-( 3, 3, 700.00, GETDATE(), 'Paid'),
-( 4, 4, 800.00, GETDATE(), 'Pending'),
-( 5, 5, 900.00, GETDATE(), 'Paid');
-
--- Thêm dữ liệu vào bảng Payment
-INSERT INTO Payment (BillID, PaymentDate)
-VALUES 
-( 1, GETDATE()),
-( 3, GETDATE()),
-( 5, GETDATE()),
-( 4, GETDATE()),
-( 2, GETDATE());
 
 
 
 -- Thêm dữ liệu vào bảng DormService
-INSERT INTO DormService ( DormID, ServiceID, DepartmentID)
+INSERT INTO DormService ( DormID, ServiceID)
 VALUES 
-( 1, 1, 1),
-( 2, 2, 2),
-( 3, 3, 3),
-( 4, 4, 4),
-( 5, 5, 5);
+( 1, 1),
+( 2, 2),
+( 3, 3),
+( 4, 4),
+( 5, 5);
+
+

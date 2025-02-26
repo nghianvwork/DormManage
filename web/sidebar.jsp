@@ -69,7 +69,7 @@
                     <a class="nav-link" href="manage-bill">MANAGE BILL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="payment-history">PAYMENT HISTORY</a>
+                    <a class="nav-link" href="payment-history">PAYMENT</a>
                 </li>
             </ul>
         </div>  

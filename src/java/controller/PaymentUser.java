@@ -31,9 +31,9 @@ public class PaymentUser extends HttpServlet {
                 if (paymentSuccess) {
                     BillDAO billDAO = new BillDAO();
                     billDAO.updatePaymentStatus(billID, true);
-                    response.sendRedirect("payment-history-user?success=true");
+                    response.sendRedirect("payment-history?success=true");
                 } else {
-                    response.sendRedirect("payment-history-user?error=failed");
+                    response.sendRedirect("payment-history?error=failed");
                 }
             } else {
                 response.sendRedirect("login");

@@ -123,19 +123,21 @@ public class BillDAO extends DBContext {
         }
         return bills;
     }
-public List<Bill> getAllBills() {
+
+    public List<Bill> getAllBills() {
         List<Bill> bills = new ArrayList<>();
         String sql = "SELECT * FROM Bill";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Bill bill = new Bill(
-                    rs.getInt("BillID"),
-                    rs.getInt("RoomID"),
-                    rs.getInt("GuestID"),
-                    rs.getDouble("TotalCost"),
-                    rs.getDate("CreateDate").toLocalDate(),
-                    rs.getBoolean("PaymentStatus")
+                        rs.getInt("BillID"),
+                        rs.getInt("RoomID"),
+                        rs.getInt("GuestID"),
+                        rs.getDouble("TotalCost"),
+                        rs.getDate("CreateDate").toLocalDate(),
+                        rs.getBoolean("PaymentStatus"),
+                        rs.getBoolean("AdminConfirmed")
                 );
                 bills.add(bill);
             }
@@ -145,5 +147,17 @@ public List<Bill> getAllBills() {
         return bills;
     }
 
+    public boolean confirmPaymentByAdmin(int billID, boolean status) {
+        String sql = "UPDATE Bill SET AdminConfirmed = ? WHERE BillID = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setBoolean(1, status);
+            stmt.setInt(2, billID);
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
 
 }

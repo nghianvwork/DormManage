@@ -14,7 +14,7 @@ import java.sql.Connection;
  */
 public class DBContext {
     
-
+   
      public Connection getConnection()throws Exception {
         String url = "jdbc:sqlserver://"+serverName+":"+portNumber + "\\" + instance +";databaseName="+dbName+";encrypt=true;trustServerCertificate=true";
         if(instance == null || instance.trim().isEmpty())

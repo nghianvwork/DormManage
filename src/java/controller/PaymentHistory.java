@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Bill;
 import model.User;
 
@@ -40,8 +42,7 @@ public class PaymentHistory extends HttpServlet {
                 request.getRequestDispatcher("payment-history-user.jsp").forward(request, response);
                 }
 
-//                request.setAttribute("bills", bills);
-//                request.getRequestDispatcher("payment-history.jsp").forward(request, response);
+                request.getRequestDispatcher("payment-history.jsp").forward(request, response);
             } else {
                 response.sendRedirect("login");
             }
@@ -49,4 +50,5 @@ public class PaymentHistory extends HttpServlet {
             response.sendRedirect("login");
         }
     }
+    
 }

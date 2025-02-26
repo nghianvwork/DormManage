@@ -17,6 +17,25 @@ public class Bill {
     double totalCost;
     LocalDate createDate;
     Boolean paymentStatus;
+    Boolean adminConfirmed;
+
+    public Bill(int billID, int roomID, int guestID, double totalCost, LocalDate createDate, Boolean paymentStatus, Boolean adminConfirmed) {
+        this.billID = billID;
+        this.roomID = roomID;
+        this.guestID = guestID;
+        this.totalCost = totalCost;
+        this.createDate = createDate;
+        this.paymentStatus = paymentStatus;
+        this.adminConfirmed = adminConfirmed;
+    }
+
+    public Boolean getAdminConfirmed() {
+        return adminConfirmed;
+    }
+
+    public void setAdminConfirmed(Boolean adminConfirmed) {
+        this.adminConfirmed = adminConfirmed;
+    }
     
     public Bill() {
     }

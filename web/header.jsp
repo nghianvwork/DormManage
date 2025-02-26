@@ -54,7 +54,7 @@
                             <a class="nav-link" href="user-bill">BILL</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="payment-history">PAYMENT-HISTORY</a>
+                            <a class="nav-link" href="payment-history">PAYMENT</a>
                         </li>
                     </ul>
                     <!-- You can add login/logout button or user-specific options here -->
