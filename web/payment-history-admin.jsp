@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Payment</title>
+    <title>Payment History - Admin</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -65,6 +65,12 @@
                 </c:forEach>
             </tbody>
         </table>
+    </div>
+
+    <!-- Nút Back -->
+    <div class="text-center mt-3">
+      
+        <button class="btn btn-secondary" onclick="history.back()">Back</button>
     </div>
 
     <!-- Bootstrap JS -->

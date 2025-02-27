@@ -10,10 +10,12 @@
 </head>
 <body>
     <jsp:include page="navigation.jsp" />
+
     <div class="container mt-4">
-        <h2>List of Empty Rooms</h2>
-        <table class="table table-striped">
-            <thead>
+        <h2 class="text-center mb-4">List of Empty Rooms</h2>
+
+        <table class="table table-bordered table-striped text-center">
+            <thead class="thead-dark">
                 <tr>
                     <th>Room ID</th>
                     <th>Room Number</th>
@@ -27,18 +29,33 @@
                     <tr>
                         <td>${room.roomID}</td>
                         <td>${room.roomNumber}</td>
-                        <td>${room.department.departmentName}</td> 
-                        <td>${room.status}</td>
-<!--                        <td>
+                        <td>${room.department.departmentName}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${room.status == 'Available'}">
+                                    <span class="badge bg-success">Available</span>
+                                </c:when>
+                                <c:otherwise>
+                                    <span class="badge bg-danger">${room.status}</span>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td>
                             <a href="book-room?roomID=${room.roomID}" class="btn btn-success">Book</a>
-                        </td>-->
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
+
+     
+        <div class="text-center mt-3">
+           
+            <button class="btn btn-secondary" onclick="history.back()">Back</button>
+        </div>
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -36,7 +36,7 @@
                                 <th>Dorm ID</th>
                                 <th>Name</th>
                                 <th>Address</th>
-                                <th> Empty room></th>
+                                <th> Empty room</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
