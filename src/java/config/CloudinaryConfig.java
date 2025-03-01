@@ -25,7 +25,7 @@ public class CloudinaryConfig {
     }
 
     public static void main(String[] args) {
-        File file = new File("C:/Users/phand/Pictures/BABY/avt.jpg");
+        File file = new File("C:/Users/admin/OneDrive/Documents/tài liệu/images (1).jpg");
         Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
                 "cloud_name", "dtn0i6fvs",
                 "api_key", "945286173851369",

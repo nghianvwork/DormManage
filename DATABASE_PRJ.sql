@@ -68,7 +68,7 @@ CREATE TABLE Bill (
 
 
 CREATE TABLE DormImage (
-    ImageID INT PRIMARY KEY,
+    ImageID INT PRIMARY KEY IDENTITY(1,1),
     DormID INT,
     ImageURL TEXT,
 	
@@ -107,9 +107,9 @@ VALUES
 INSERT INTO UserServices (UserServiceID, UserID, ServiceID, CreatedDate, Status)
 VALUES 
 (1, 1, 1, GETDATE(), 'Active'),
-(2, 2, 3, GETDATE(), 'Pending'),
+(2, 2, 3, GETDATE(), 'Active'),
 (3, 3, 2, GETDATE(), 'Active'),
-(4, 4, 4, GETDATE(), 'Cancelled'),
+(4, 4, 4, GETDATE(), 'Active'),
 (5, 5, 5, GETDATE(), 'Active');
 
 -- Thêm dữ liệu vào bảng Departments
@@ -138,7 +138,6 @@ VALUES
 (4, '404D', N'Available'),
 (5, '506D', N'Available'),
 (5, '501D', N'Available');
-
 
 
 

@@ -21,7 +21,7 @@
                     <th>Room Number</th>
                     <th>Department</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -40,9 +40,7 @@
                                 </c:otherwise>
                             </c:choose>
                         </td>
-                        <td>
-                            <a href="book-room?roomID=${room.roomID}" class="btn btn-success">Book</a>
-                        </td>
+                        
                     </tr>
                 </c:forEach>
             </tbody>

@@ -124,7 +124,12 @@ public class DepartmentDAO extends DBContext {
     }
 
     public void addRoomImage(int roomID, String imageURL) {
-        String query = "INSERT INTO DormImage (dormID, imageURL) VALUES (?, ?)";
+        String query = "INSERT INTO [dbo].[DormImage]\n"
+                + "           ([DormID]\n"
+                + "           ,[ImageURL])\n"
+                + "     VALUES\n"
+                + "           (?"
+                + "           ,?)";
 
         try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
 
@@ -138,7 +143,7 @@ public class DepartmentDAO extends DBContext {
     }
 
     public boolean deleteDormImage(int dormID, String imageID) {
-        String sql = "DELETE FROM DormImage WHERE dormID = ? AND imageID = ?";
+        String sql = "DELETE FROM DormImage WHERE DormID = ? AND ImageID = ?";
         try (
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, dormID);
