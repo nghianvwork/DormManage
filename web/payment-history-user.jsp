@@ -11,7 +11,7 @@
     <jsp:include page="navigation.jsp" />
     
     <div class="container mt-4">
-        <h2 class="text-center">Payment History</h2>
+        <h2 class="text-center">Payment</h2>
         
         <table class="table table-bordered table-striped text-center">
             <thead class="thead-dark">
@@ -22,7 +22,7 @@
                     <th>Total Cost</th>
                     <th>Create Date</th>
                     <th>Payment Status</th>
-                    <c:if test="${sessionScope.user.role == 'Manager'}">
+                    <c:if test="${sessionScope.user.role == 'User'}">
                         <th>Action</th>
                     </c:if>
                 </tr>
@@ -45,7 +45,7 @@
                                 </c:otherwise>
                             </c:choose>
                         </td>
-                        <c:if test="${sessionScope.user.role == 'Manager'}">
+                        <c:if test="${sessionScope.user.role == 'User'}">
                             <td>
                                 <c:if test="${!bill.paymentStatus}">
                                     <form action="payment-user" method="post">
@@ -61,7 +61,7 @@
             </tbody>
         </table>
 
-        <!-- Nút Back -->
+        
         <div class="text-center mt-3">
           
             <button class="btn btn-secondary" onclick="history.back()">Back</button>

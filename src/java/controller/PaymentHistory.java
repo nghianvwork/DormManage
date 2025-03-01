@@ -42,7 +42,7 @@ public class PaymentHistory extends HttpServlet {
                 request.getRequestDispatcher("payment-history-user.jsp").forward(request, response);
                 }
 
-                request.getRequestDispatcher("payment-history.jsp").forward(request, response);
+                
             } else {
                 response.sendRedirect("login");
             }
