@@ -18,7 +18,7 @@
                     <jsp:include page="sidebar.jsp" />
                 </div>
                 <div class="col-md-10">
-                    <h2>ROOM MANAGEMENT</h2>
+                    <h2>ROOM MANAGEMENT </h2>
                     <br><br>
 
                     <!-- Search Form -->
@@ -168,7 +168,35 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Total Rooms</div>
+            <div class="card-body">
+                <h5 class="card-title">${numberOfRooms}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">Available Rooms</div>
+            <div class="card-body">
+                <h5 class="card-title">${numRoomsempty}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-header">Occupied Rooms</div>
+            <div class="card-body">
+                <h5 class="card-title">${numRooms}</h5>
+            </div>
+        </div>
+    </div>
+</div>
                 </div>
+                       
+
             </div>
         </div>
         <script>

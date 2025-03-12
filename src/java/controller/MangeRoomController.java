@@ -44,12 +44,16 @@ public class MangeRoomController extends HttpServlet {
             List<Room> rooms = roomDAO.getAllRooms(us.getUserID(), (page-1) * recordsPerPage, recordsPerPage);
             int numberOfRooms = roomDAO.getNumberOfRooms(us.getUserID()); // Get total count for pagination
             int numberOfPages = (int) Math.ceil((double) numberOfRooms / recordsPerPage);
+            int numRoomsempty = roomDAO.getNumberOfRoomsEmpty(us.getUserID());
+            int numRooms = roomDAO.getNumberOfRoomsOccupied(us.getUserID());
             List<Department> departments = new DepartmentDAO().getAllByManagerID1(us.getUserID());
             request.setAttribute("rooms", rooms);
             request.setAttribute("departments", departments);
             request.setAttribute("numberOfPages", numberOfPages);
-            request.setAttribute("currentPage", page);
-
+            request.setAttribute("numberOfRooms", numberOfRooms);
+             request.setAttribute("numRoomsempty", numRoomsempty);
+              request.setAttribute("numRooms", numRooms);
+request.setAttribute("currentPage", page);
             request.getRequestDispatcher("manage-room.jsp").forward(request, response);
         } else {
             response.sendRedirect("login");

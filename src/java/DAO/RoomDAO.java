@@ -405,5 +405,38 @@ public class RoomDAO extends DBContext {
         }
         return emptyRooms;
     }
+public int getNumberOfRoomsEmpty(int userID) {
+        int count = 0;
+        String query = "SELECT count(*) as Total FROM Rooms"
+                + " join Departments on Rooms.DepartmentID = Departments.DepartmentID"
+                + " WHERE Departments.ManagerID = ? and Status = 'Available'";
 
+        try (PreparedStatement statement = conn.prepareStatement(query)) {
+            statement.setInt(1, userID);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                count = resultSet.getInt("Total");
+            }
+        } catch (SQLException e) {
+            System.out.println("getNumberOfRoomsByName: " + e.getMessage());
+        }
+        return count;
+    }
+public int getNumberOfRoomsOccupied(int userID) {
+        int count = 0;
+        String query = "SELECT count(*) as Total FROM Rooms"
+                + " join Departments on Rooms.DepartmentID = Departments.DepartmentID"
+                + " WHERE Departments.ManagerID = ? and Status = 'Occupied'";
+
+        try (PreparedStatement statement = conn.prepareStatement(query)) {
+            statement.setInt(1, userID);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                count = resultSet.getInt("Total");
+            }
+        } catch (SQLException e) {
+            System.out.println("getNumberOfRoomsByName: " + e.getMessage());
+        }
+        return count;
+    }
 }
