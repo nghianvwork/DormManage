@@ -11,13 +11,18 @@ import java.time.LocalDate;
  * @author phand
  */
 public class Bill {
+    
     int billID;
+   
     int roomID;
     int guestID;
     double totalCost;
     LocalDate createDate;
     Boolean paymentStatus;
     Boolean adminConfirmed;
+
+   
+   
 
     public Bill(int billID, int roomID, int guestID, double totalCost, LocalDate createDate, Boolean paymentStatus, Boolean adminConfirmed) {
         this.billID = billID;
@@ -104,5 +109,15 @@ public class Bill {
     public void setPaymentStatus(Boolean paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
+
+    @Override
+    public String toString() {
+        return "Bill{" + "billID=" + billID + ", roomID=" + roomID + ", guestID=" + guestID + ", totalCost=" + totalCost + ", createDate=" + createDate + ", paymentStatus=" + paymentStatus + ", adminConfirmed=" + adminConfirmed + '}';
+    }
+
+   
+  
+
+   
 
 }

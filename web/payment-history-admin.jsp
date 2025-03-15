@@ -18,6 +18,7 @@
 
                 <tr>
                     <th>Bill ID</th>
+                   
                     <th>Room ID</th>
                     <th>Guest ID</th>
                     <th>Total Cost</th>
@@ -31,6 +32,7 @@
                 <c:forEach var="bill" items="${bills}">
                     <tr>
                         <td>${bill.billID}</td>
+                     
                         <td>${bill.roomID}</td>
                         <td>${bill.guestID}</td>
                         <td>${bill.totalCost} $</td>

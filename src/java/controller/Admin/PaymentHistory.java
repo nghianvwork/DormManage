@@ -29,10 +29,10 @@ public class PaymentHistory extends HttpServlet {
             if (user != null) {
                 BillDAO billDAO = new BillDAO();
                 List<Bill> bills;
-
+            
                 
                 if ("Manager".equals(user.getRole())) {
-                    bills = billDAO.getAllBills();
+                    bills = billDAO.getBillsByAdmin(user.getUserID());
                      request.setAttribute("bills", bills);
                 request.getRequestDispatcher("payment-history-admin.jsp").forward(request, response);
                     

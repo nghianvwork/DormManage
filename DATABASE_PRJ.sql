@@ -55,6 +55,7 @@ CREATE TABLE UserRooms (
 
 CREATE TABLE Bill (
     BillID INT PRIMARY KEY IDENTITY(1,1),
+	
     RoomID INT,
     GuestID INT,
     TotalCost DECIMAL(10,2),
@@ -63,6 +64,7 @@ CREATE TABLE Bill (
 	AdminConfirmed BIT DEFAULT 0,
     FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID),
     FOREIGN KEY (GuestID) REFERENCES Users(UserID)
+	
 );
 
 

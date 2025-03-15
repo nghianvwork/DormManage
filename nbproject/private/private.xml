@@ -2,6 +2,24 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/PRJ301/DormManage/web/booked-room.jsp</file>
+            <file>file:/D:/PRJ301/DormManage/web/header.jsp</file>
+            <file>file:/D:/PRJ301/DormManage/src/java/controller/Admin/ConfirmPayment.java</file>
+            <file>file:/D:/PRJ301/DormManage/web/sidebar.jsp</file>
+            <file>file:/D:/PRJ301/DormManage/nbproject/build-impl.xml</file>
+            <file>file:/D:/PRJ301/DormManage/src/java/controller/Admin/PaymentHistory.java</file>
+            <file>file:/D:/PRJ301/DormManage/web/navigation.jsp</file>
+            <file>file:/D:/PRJ301/DormManage/web/payment-history-admin.jsp</file>
+            <file>file:/D:/PRJ301/DormManage/web/payment-history-user.jsp</file>
+            <file>file:/D:/PRJ301/DormManage/src/java/controller/Admin/ManageBill.java</file>
+            <file>file:/D:/PRJ301/DormManage/web/user-bills.jsp</file>
+            <file>file:/D:/PRJ301/DormManage/web/WEB-INF/web.xml</file>
+            <file>file:/D:/PRJ301/DormManage/web/manage-bill.jsp</file>
+            <file>file:/D:/PRJ301/DormManage/web/manage-room.jsp</file>
+            <file>file:/D:/PRJ301/DormManage/web/footer.html</file>
+            <file>file:/D:/PRJ301/DormManage/src/java/DAO/BillDAO.java</file>
+            <file>file:/D:/PRJ301/DormManage/src/java/model/Bill.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -110,6 +110,7 @@ public class BillDAO extends DBContext {
             while (rs.next()) {
                 Bill bill = new Bill(
                         rs.getInt("BillID"),
+                        
                         rs.getInt("RoomID"),
                         rs.getInt("GuestID"),
                         rs.getDouble("TotalCost"),
@@ -131,6 +132,47 @@ public class BillDAO extends DBContext {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Bill bill = new Bill(
+                        
+                        rs.getInt("BillID"),
+                      
+                        rs.getInt("RoomID"),
+                        rs.getInt("GuestID"),
+                        rs.getDouble("TotalCost"),
+                        rs.getDate("CreateDate").toLocalDate(),
+                        rs.getBoolean("PaymentStatus"),
+                        rs.getBoolean("AdminConfirmed")
+                );
+                bills.add(bill);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return bills;
+    }
+    public List<Bill> getBillsByAdmin(int managerID) {
+        List<Bill> bills = new ArrayList<>();
+        String sql = "SELECT \n"
+                + "    b.BillID,\n"
+                + "    b.RoomID,\n"
+                + "    r.RoomNumber,\n"
+                + "    b.GuestID,\n"
+                + "    u.FullName AS GuestName,\n"
+                + "    b.TotalCost,\n"
+                + "    b.CreateDate,\n"
+                + "    b.PaymentStatus,\n"
+                + "    b.AdminConfirmed,\n"
+                + "    d.DepartmentID,\n"
+                + "    d.DepartmentName\n"
+                + "FROM Bill b\n"
+                + "JOIN Rooms r ON b.RoomID = r.RoomID\n"
+                + "JOIN Departments d ON r.DepartmentID = d.DepartmentID\n"
+                + "JOIN Users u ON b.GuestID = u.UserID\n"
+                + "WHERE d.ManagerID = ?;";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, managerID);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Bill bill = new Bill(
                         rs.getInt("BillID"),
                         rs.getInt("RoomID"),
                         rs.getInt("GuestID"),
@@ -146,7 +188,6 @@ public class BillDAO extends DBContext {
         }
         return bills;
     }
-
     public boolean confirmPaymentByAdmin(int billID, boolean status) {
         String sql = "UPDATE Bill SET AdminConfirmed = ? WHERE BillID = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -159,5 +200,13 @@ public class BillDAO extends DBContext {
         }
         return false;
     }
-
+    public static void main(String[] args) {
+        BillDAO list = new BillDAO();
+        List<Bill> l = list.getBillsByAdmin(5);
+        for(Bill i : l){
+             System.out.println(i.toString());
+        }
+       
+    }
+    
 }
