@@ -21,7 +21,7 @@
     </servlet>
     <servlet>
         <servlet-name>EmptyRooms</servlet-name>
-        <servlet-class>controller.EmptyRooms</servlet-class>
+        <servlet-class>controller.Admin.EmptyRooms</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UserBillServlet</servlet-name>
@@ -29,19 +29,19 @@
     </servlet>
     <servlet>
         <servlet-name>UserBill</servlet-name>
-        <servlet-class>controller.UserBill</servlet-class>
+        <servlet-class>controller.User.UserBill</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PaymentHistory</servlet-name>
-        <servlet-class>controller.PaymentHistory</servlet-class>
+        <servlet-class>controller.Admin.PaymentHistory</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdatePayment</servlet-name>
-        <servlet-class>controller.UpdatePayment</servlet-class>
+        <servlet-class>controller.Admin.UpdatePayment</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PaymentUser</servlet-name>
-        <servlet-class>controller.PaymentUser</servlet-class>
+        <servlet-class>controller.User.PaymentUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminPaymentHistory</servlet-name>

@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="container mt-4">
-
+   <jsp:include page="navigation.jsp" />
     <h2 class="text-center mb-4">Payment History - Admin</h2>                  
-
+  <jsp:include page="sidebar.jsp" />
     <div class="table-responsive">
         <table class="table table-bordered table-striped text-center">
+          
             <thead class="table-dark">
+
                 <tr>
                     <th>Bill ID</th>
                     <th>Room ID</th>
